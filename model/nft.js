@@ -10,6 +10,10 @@ const nftSchema = new mongoose.Schema({
     default: 'Eth',
     required: true,
   },
+  description: {
+    type: String,
+    required: true,
+  },
   img: {
     type: String,
     default: 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640',
