@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', indexRoute);
 
 mongoose.connect('mongodb+srv://test111:dm4bFMnDOW1evqUP@cluster0.codfd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority').then(() => {
-  app.listen(port, () => {
+  app.listen(process.env.PORT || port, () => {
   });
 }).catch(() => {
 
