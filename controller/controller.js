@@ -8,6 +8,7 @@ exports.create = (req, res) => {
   const nft = new NftDb({
     title: req.body.title,
     chain: req.body.chain,
+    description: req.body.description,
     img: req.body.img,
     price: req.body.price,
     status: req.body.status,
