@@ -26,12 +26,14 @@ exports.update = (req, res) => {
     res.status(400).send({ message: 'Content cannot be empty' });
   }
   const { id } = req.params;
-  NftDb.findByIdAndUpdate(id, req.body, { useFindAndModify: false }).then((data) => {
+  NftDb.findByIdAndUpdate(id, req.body, { useFindAndModify: true }).then((data) => {
     if (!data) {
       // eslint-disable-next-line no-template-curly-in-string
       res.status(404).send({ message: 'Cannot find nft with this ${id}' });
     } else {
-      res.send(data);
+      NftDb.findById(id).then((item) => {
+        res.send(item);
+      });
     }
   }).catch((err) => {
     res.status(500).send({ message: err.message });
